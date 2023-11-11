@@ -4,7 +4,10 @@
  */
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JPanel;
+import modelo.TableroData;
 
 /**
  *
@@ -17,9 +20,17 @@ public class Tablero extends javax.swing.JFrame {
      */
     public Tablero() {
         initComponents();
-        
-        //JFrame Background
-        this.getContentPane().setBackground(Color.white);
+    }
+
+    public void cargarTablero(JPanel panelTablero) {
+        panelPrincipal.setSize(panelTablero.getWidth(),
+                panelTablero.getHeight());
+        panelTablero.setLocation(0, 0);
+        panelTablero.setBackground(Color.BLACK);
+        panelPrincipal.removeAll();
+        panelPrincipal.add(panelTablero, BorderLayout.CENTER);
+        panelPrincipal.revalidate();
+        panelPrincipal.repaint();
     }
 
     /**
@@ -31,25 +42,30 @@ public class Tablero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelTablero = new javax.swing.JPanel();
+        panelPrincipal = new javax.swing.JPanel();
         btnConfiguracion = new javax.swing.JButton();
+        nombreJ1 = new javax.swing.JLabel();
+        nombreJ2 = new javax.swing.JLabel();
+        nombreJ3 = new javax.swing.JLabel();
+        nombreJ4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tablero");
+        setExtendedState(6);
         setResizable(false);
 
-        jPanelTablero.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
-        jPanelTablero.setPreferredSize(new java.awt.Dimension(500, 500));
+        panelPrincipal.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        panelPrincipal.setPreferredSize(new java.awt.Dimension(900, 700));
 
-        javax.swing.GroupLayout jPanelTableroLayout = new javax.swing.GroupLayout(jPanelTablero);
-        jPanelTablero.setLayout(jPanelTableroLayout);
-        jPanelTableroLayout.setHorizontalGroup(
-            jPanelTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
+        panelPrincipal.setLayout(panelPrincipalLayout);
+        panelPrincipalLayout.setHorizontalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 894, Short.MAX_VALUE)
         );
-        jPanelTableroLayout.setVerticalGroup(
-            jPanelTableroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+        panelPrincipalLayout.setVerticalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 694, Short.MAX_VALUE)
         );
 
         btnConfiguracion.setBackground(new java.awt.Color(0, 109, 182));
@@ -62,29 +78,70 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
+        nombreJ1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nombreJ1.setText("jLabel1");
+
+        nombreJ2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nombreJ2.setText("jLabel1");
+
+        nombreJ3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nombreJ3.setText("jLabel1");
+
+        nombreJ4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        nombreJ4.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(631, Short.MAX_VALUE)
+                .addComponent(btnConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(534, 534, 534))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(nombreJ1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(198, 198, 198)
-                        .addComponent(jPanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(384, 384, 384)
-                        .addComponent(btnConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(202, Short.MAX_VALUE))
+                    .addComponent(nombreJ4)
+                    .addComponent(nombreJ2))
+                .addGap(76, 76, 76))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(77, 77, 77)
+                    .addComponent(nombreJ3)
+                    .addContainerGap(1175, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jPanelTablero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(nombreJ1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(35, Short.MAX_VALUE)
+                        .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)))
                 .addComponent(btnConfiguracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(nombreJ4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nombreJ2)
+                .addGap(305, 305, 305))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(489, Short.MAX_VALUE)
+                    .addComponent(nombreJ3)
+                    .addGap(308, 308, 308)))
         );
+
+        panelPrincipal.getAccessibleContext().setAccessibleDescription("");
 
         pack();
         setLocationRelativeTo(null);
@@ -93,7 +150,6 @@ public class Tablero extends javax.swing.JFrame {
     private void btnConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionActionPerformed
         // TODO add your handling code here:
         Configuracion configuracion = new Configuracion();
-        
         configuracion.setVisible(true);
     }//GEN-LAST:event_btnConfiguracionActionPerformed
 
@@ -134,6 +190,10 @@ public class Tablero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfiguracion;
-    private javax.swing.JPanel jPanelTablero;
+    public javax.swing.JLabel nombreJ1;
+    public javax.swing.JLabel nombreJ2;
+    public javax.swing.JLabel nombreJ3;
+    public javax.swing.JLabel nombreJ4;
+    public javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
 }
