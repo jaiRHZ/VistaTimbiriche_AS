@@ -32,7 +32,6 @@ public class TableroPanel extends javax.swing.JPanel {
     }
 
     public void generarPuntos(List<Punto> puntos) {
-        tipoPintado = "generarPuntos";
         this.puntos = puntos;
         repaint();
     }
@@ -48,10 +47,7 @@ public class TableroPanel extends javax.swing.JPanel {
         super.paint(g);
         if (lineas != null) {
             Graphics2D g2d = (Graphics2D) g;
-
-            // Configurar el grosor de la línea
-            g2d.setStroke(new BasicStroke(5)); // Ajusta el valor según tus necesidades
-
+            g2d.setStroke(new BasicStroke(5));
             for (int i = 0; i < lineas.size(); i++) {
                 g.setColor(Color.ORANGE);
                 Punto puntoA = lineas.get(i).getPuntoA();
@@ -63,17 +59,15 @@ public class TableroPanel extends javax.swing.JPanel {
             }
         }
 
-        if (tipoPintado.equals("generarPuntos")) {
-            for (int i = 0; i < puntos.size(); i++) {
-                g.setColor(Color.WHITE);
-                int posicionX = puntos.get(i).getX();
-                int posicionY = puntos.get(i).getY();
-                if (puntoA != null && puntoA.equals(puntos.get(i))
-                        || puntoB != null && puntoB.equals(puntos.get(i))) {
-                    g.setColor(Color.GREEN);
-                }
-                g.fillOval(posicionX, posicionY, 10, 10);
+        for (int i = 0; i < puntos.size(); i++) {
+            g.setColor(Color.WHITE);
+            int posicionX = puntos.get(i).getX();
+            int posicionY = puntos.get(i).getY();
+            if (puntoA != null && puntoA.equals(puntos.get(i))
+                    || puntoB != null && puntoB.equals(puntos.get(i))) {
+                g.setColor(Color.GREEN);
             }
+            g.fillOval(posicionX, posicionY, 10, 10);
         }
 
     }

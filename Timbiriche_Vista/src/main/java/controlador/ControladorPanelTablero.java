@@ -52,28 +52,34 @@ public class ControladorPanelTablero implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if (me.getButton() == MouseEvent.BUTTON1) {
-            if (punto1 == null) {
-                this.punto1 = seleccionarPunto(me);
-                tableroPanel.puntoA = punto1;
-            } else if (punto2 == null) {
-                this.punto2 = seleccionarPunto(me);
-                tableroPanel.puntoB = punto2;
-                linea = new Linea(punto1, punto2);
-            }
-        } else if (me.getButton() == MouseEvent.BUTTON2) {
-            if (linea != null) {
-                tableroPanel.generaLineas(linea);
+        switch (me.getButton()) {
+            case MouseEvent.BUTTON1:
+                if (punto1 == null) {
+                    this.punto1 = seleccionarPunto(me);
+                    tableroPanel.puntoA = punto1;
+                } else if (punto2 == null) {
+                    this.punto2 = seleccionarPunto(me);
+                    tableroPanel.puntoB = punto2;
+                    linea = new Linea(punto1, punto2);
+                }
+                break;
+            case MouseEvent.BUTTON2:
+                if (linea != null) {
+                    tableroPanel.generaLineas(linea);
+                    punto1 = null;
+                    punto2 = null;
+                    tableroPanel.puntoA = punto1;
+                    tableroPanel.puntoB = punto2;
+                }
+                break;
+            case MouseEvent.BUTTON3:
                 punto1 = null;
                 punto2 = null;
                 tableroPanel.puntoA = punto1;
                 tableroPanel.puntoB = punto2;
-            }
-        } else if (me.getButton() == MouseEvent.BUTTON3) {
-            punto1 = null;
-            punto2 = null;
-            tableroPanel.puntoA = punto1;
-            tableroPanel.puntoB = punto2;
+                break;
+            default:
+                break;
         }
         tableroPanel.repaint();
     }

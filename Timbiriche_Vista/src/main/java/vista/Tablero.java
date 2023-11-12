@@ -7,7 +7,6 @@ package vista;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
-import modelo.TableroData;
 
 /**
  *
