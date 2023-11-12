@@ -61,15 +61,13 @@ public class ControladorPanelTablero implements MouseListener {
                     this.punto2 = seleccionarPunto(me);
                     tableroPanel.puntoB = punto2;
                     linea = new Linea(punto1, punto2);
-                }
-                break;
-            case MouseEvent.BUTTON2:
-                if (linea != null) {
-                    tableroPanel.generaLineas(linea);
-                    punto1 = null;
-                    punto2 = null;
-                    tableroPanel.puntoA = punto1;
-                    tableroPanel.puntoB = punto2;
+                    if (linea != null) {
+                        tableroPanel.generaLineas(linea);
+                        punto1 = null;
+                        punto2 = null;
+                        tableroPanel.puntoA = punto1;
+                        tableroPanel.puntoB = punto2;
+                    }
                 }
                 break;
             case MouseEvent.BUTTON3:
