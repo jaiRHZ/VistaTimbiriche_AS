@@ -49,7 +49,7 @@ public class Tablero extends javax.swing.JFrame {
         nombreJ3 = new javax.swing.JLabel();
         nombreJ4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tablero");
         setExtendedState(6);
         setResizable(false);
@@ -72,11 +72,6 @@ public class Tablero extends javax.swing.JFrame {
         btnConfiguracion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnConfiguracion.setText("Configuración");
         btnConfiguracion.setPreferredSize(new java.awt.Dimension(150, 50));
-        btnConfiguracion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfiguracionActionPerformed(evt);
-            }
-        });
 
         nombreJ1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         nombreJ1.setText("jLabel1");
@@ -147,12 +142,6 @@ public class Tablero extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfiguracionActionPerformed
-        // TODO add your handling code here:
-        Configuracion configuracion = new Configuracion();
-        configuracion.setVisible(true);
-    }//GEN-LAST:event_btnConfiguracionActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -189,7 +178,7 @@ public class Tablero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConfiguracion;
+    public javax.swing.JButton btnConfiguracion;
     public javax.swing.JLabel nombreJ1;
     public javax.swing.JLabel nombreJ2;
     public javax.swing.JLabel nombreJ3;

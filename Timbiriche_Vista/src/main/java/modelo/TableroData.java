@@ -16,9 +16,11 @@ public class TableroData {
 
     private List<Punto> puntos;
     private List<Jugador> jugadores;
+    private List<Linea> lineas;
 
     public TableroData(int cantidadPuntos, int anchoTablero, int altoTablero) {
         this.puntos = calcularPuntosTablero(cantidadPuntos, anchoTablero, altoTablero);
+        this.lineas = new ArrayList<>();
     }
 
     public List<Jugador> getJugadores() {
@@ -35,6 +37,14 @@ public class TableroData {
 
     public void setPuntos(List<Punto> puntos) {
         this.puntos = puntos;
+    }
+
+    public List<Linea> getLineas() {
+        return lineas;
+    }
+
+    public void setLineas(List<Linea> lineas) {
+        this.lineas = lineas;
     }
 
     private List<Punto> calcularPuntosTablero(int cantidadPuntos, int anchoTablero, int altoTablero) {

@@ -5,9 +5,13 @@
  */
 package vista;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
 import java.util.List;
+import modelo.Linea;
 import modelo.Punto;
 
 /**
@@ -17,9 +21,13 @@ import modelo.Punto;
 public class TableroPanel extends javax.swing.JPanel {
 
     private List<Punto> puntos;
+    private List<Linea> lineas;
     private String tipoPintado;
+    public Punto puntoA;
+    public Punto puntoB;
 
     public TableroPanel() {
+        this.lineas = new ArrayList<>();
         initComponents();
     }
 
@@ -29,17 +37,45 @@ public class TableroPanel extends javax.swing.JPanel {
         repaint();
     }
 
+    public void generaLineas(Linea linea) {
+        //  tipoPintado = "generarLineas";
+        lineas.add(linea);
+        repaint();
+    }
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        if (lineas != null) {
+            Graphics2D g2d = (Graphics2D) g;
+
+            // Configurar el grosor de la línea
+            g2d.setStroke(new BasicStroke(5)); // Ajusta el valor según tus necesidades
+
+            for (int i = 0; i < lineas.size(); i++) {
+                g.setColor(Color.ORANGE);
+                Punto puntoA = lineas.get(i).getPuntoA();
+                Punto puntoB = lineas.get(i).getPuntoB();
+                g.drawLine(puntoA.getX() + 10 / 2,
+                        puntoA.getY() + 10 / 2,
+                        puntoB.getX() + 10 / 2,
+                        puntoB.getY() + 10 / 2);
+            }
+        }
+
         if (tipoPintado.equals("generarPuntos")) {
-            g.setColor(Color.WHITE);
             for (int i = 0; i < puntos.size(); i++) {
+                g.setColor(Color.WHITE);
                 int posicionX = puntos.get(i).getX();
                 int posicionY = puntos.get(i).getY();
+                if (puntoA != null && puntoA.equals(puntos.get(i))
+                        || puntoB != null && puntoB.equals(puntos.get(i))) {
+                    g.setColor(Color.GREEN);
+                }
                 g.fillOval(posicionX, posicionY, 10, 10);
             }
         }
+
     }
 
     /**

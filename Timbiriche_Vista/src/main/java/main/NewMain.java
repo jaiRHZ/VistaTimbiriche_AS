@@ -5,12 +5,10 @@
  */
 package main;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import controlador.ControladorTablero;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Jugador;
-import modelo.TableroData;
 
 /**
  *
@@ -29,7 +27,7 @@ public class NewMain {
         jugadores.add(new Jugador("Julio"));
         jugadores.add(new Jugador("Jorge"));
 
-        ControladorTablero controladorTablero = new ControladorTablero(40, jugadores);
+        ControladorTablero controladorTablero = new ControladorTablero(20, jugadores);
 
         controladorTablero.iniciar();
 

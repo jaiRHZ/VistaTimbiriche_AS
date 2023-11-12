@@ -5,10 +5,15 @@
  */
 package controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.util.List;
+import javax.swing.JButton;
 import modelo.Jugador;
 import modelo.Punto;
 import modelo.TableroData;
+import vista.Configuracion;
 import vista.Tablero;
 import vista.TableroPanel;
 
@@ -16,19 +21,30 @@ import vista.TableroPanel;
  *
  * @author HP
  */
-public class ControladorTablero {
+public class ControladorTablero implements ActionListener {
 
     Tablero tablero;
+    Configuracion configuracion;
     TableroPanel tableroPanel;
     TableroData tableroData;
+    ControladorPanelTablero controladorPanelTablero;
 
     public ControladorTablero(int numeroPuntos, List<Jugador> jugadores) {
         this.tablero = new Tablero();
+        this.configuracion = new Configuracion();
         this.tableroPanel = new TableroPanel();
         tableroPanel.setSize(900, 700);
         this.tableroData = new TableroData(numeroPuntos,
                 tableroPanel.getWidth(), tableroPanel.getHeight());
         tableroData.setJugadores(jugadores);
+        this.controladorPanelTablero = new ControladorPanelTablero(tablero,
+                tableroPanel, tableroData);
+        this.generarEventosConfiguracion();
+    }
+
+    private void generarEventosConfiguracion() {
+        this.tablero.btnConfiguracion.addActionListener(this);
+
     }
 
     public void iniciar() {
@@ -44,6 +60,18 @@ public class ControladorTablero {
         tablero.nombreJ2.setText(tableroData.getJugadores().get(1).getNombre());
         tablero.nombreJ3.setText(tableroData.getJugadores().get(2).getNombre());
         tablero.nombreJ4.setText(tableroData.getJugadores().get(3).getNombre());
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        Object source = ae.getSource();
+        if (source instanceof JButton) {
+            JButton buttonClicked = (JButton) source;
+            if (buttonClicked.equals(tablero.btnConfiguracion)) {
+                configuracion.setVisible(true);
+            }
+        }
+
     }
 
 }
